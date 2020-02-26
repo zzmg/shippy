@@ -9,7 +9,7 @@ service ShippingService {
 
 message Consignment{
     string id = 1;
-    string describe = 2;
+    string description = 2;
     int32 weight = 3;
     repeated Container containers = 4;
     string vessel_id = 5;
@@ -18,8 +18,9 @@ message Consignment{
 message Container {
     string id = 1;
     string customer_id = 2;
-    string origin = 3;
+    string start = 3;
     string user_id = 4;
+    string end = 5;
 }
 
 message Response {

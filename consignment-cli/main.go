@@ -24,29 +24,6 @@ func ParseFile(fileName string)(*pb.Consignment,error)  {
 }
 
 func main()  {
-	//conn, err := grpc.Dial("localhost:8888",grpc.WithInsecure())
-	//if err != nil {
-	//	fmt.Println(err.Error())
-	//}
-	//defer conn.Close()
-	//
-	//client := pb.NewShippingServiceClient(conn)
-	//
-	//consign ,_ := ParseFile("consignmengt.json")
-	//resp ,err := client.CreateConsignment(context.Background(),consign)
-	//if err != nil {
-	//	log.Fatalf("create consignment error: %v", err)
-	//}
-	//log.Printf("created: %t", resp.Created)
-	//
-	//resp, err = client.GetConsignments(context.Background(),&pb.GetRequest{})
-	//if  err!= nil {
-	//	fmt.Println(err.Error())
-	//}
-	//
-	//for  _,data := range resp.Consignments {
-	//	fmt.Println(data)
-	//}
 	cmd.Init()
 
 	client := pb.NewShippingServiceClient("go.micro.srv.consignment",client.DefaultClient)

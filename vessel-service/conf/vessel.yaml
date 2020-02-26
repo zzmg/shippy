@@ -1,0 +1,15 @@
+micro:
+  svc_name: "go.micro.srv.vessel"
+  etcd_addrs:
+    - "127.0.0.1:12379"
+  client_pool_size: 30
+
+mysql:
+  username: "root"
+  password: "253Huaerjie!"
+  host: "127.0.0.1"
+  port: 13306
+  db_name: "shippy"
+  max_idle: 50
+  max_conn: 100
+  log_type: "logrus"
