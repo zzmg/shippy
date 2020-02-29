@@ -1,0 +1,7 @@
+micro:
+  svc_name: "go.micro.srv.shippygateway"
+  etcd_addrs:
+    - "127.0.0.1:12379"
+log:
+  level: 2
+  output_dest: "elasticsearch"

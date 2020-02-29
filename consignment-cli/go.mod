@@ -8,4 +8,7 @@ require (
 	shippy.com/protoctl v0.0.0-00010101000000-000000000000
 )
 
-replace shippy.com/protoctl => ../protoctl
+replace (
+	shippy.com/protoctl => ../protoctl
+	shippy.com/protoctl/consignment => ../consignment
+)

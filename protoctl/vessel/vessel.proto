@@ -2,11 +2,11 @@ syntax = "proto3";
 package vessel;
 
 service VesselService {
-    rpc FindAvailable(Specification) returns (Response);
+    rpc FindAvailableVessel(Specification) returns (Response);
 }
 
 message Vessel{
-    string id = 1;
+    string vessel_id = 1;
     int32 capacity = 2;
     int32 max_weight = 3;
     string name = 4;
@@ -17,6 +17,8 @@ message Vessel{
 message Specification {
     int32 capacity = 1;
     int32 max_weight = 2;
+    string user_id = 3;
+    string description = 6;
 }
 
 message Response {

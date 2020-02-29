@@ -13,3 +13,7 @@ mysql:
   max_idle: 50
   max_conn: 100
   log_type: "logrus"
+  charset: "utf8"
+log:
+  level: 2
+  output_dest: "elasticsearch"

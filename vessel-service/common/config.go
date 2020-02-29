@@ -3,8 +3,8 @@ package common
 import (
 	"github.com/jinzhu/configor"
 	"github.com/sirupsen/logrus"
-	"shippy.com/consignment-service/models"
 	"shippy.com/protoctl"
+	"shippy.com/vessel-service/models"
 )
 
 var (
@@ -22,16 +22,20 @@ func LoadConfig(filePath string) {
 	ParseConf(GlobalConf, filePath)
 }
 
-func Initalias() {
+func ParseConf(config interface{}, path string) {
+	err := configor.Load(config, path)
+	if err != nil {
+		msg := "Failed to load local conf file"
+		logrus.Error(msg)
+		panic(msg)
+	}
+}
+func Initalise() {
 	protoctl.InitLog(GlobalConf.Log)
 	models.InitModel(GlobalConf.Mysql)
 }
 
-func ParseConf(dest interface{}, path string) {
-	err := configor.Load(dest, path)
-	if err != nil {
-		msg := "Failed to load local conf file"
-		logrus.Error(err.Error())
-		panic(msg)
-	}
+func InitLog(conf Config) {
+	logrus.SetLevel(logrus.Level(conf.Log.Level))
+	logrus.SetFormatter(&logrus.JSONFormatter{})
 }

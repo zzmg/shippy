@@ -4,23 +4,21 @@ package consignment;
 
 service ShippingService {
     rpc CreateConsignment(Consignment) returns (Response);
-    rpc GetConsignments(GetRequest) returns (Response);
+    rpc GetConsignment(GetRequest) returns (Response);
 }
 
 message Consignment{
-    string id = 1;
+    string consignment_id = 1;
     string description = 2;
     int32 weight = 3;
     repeated Container containers = 4;
-    string vessel_id = 5;
+    string user_id = 5;
 }
 
 message Container {
-    string id = 1;
+    string container_id = 1;
     string customer_id = 2;
-    string start = 3;
-    string user_id = 4;
-    string end = 5;
+    string user_id = 3;
 }
 
 message Response {

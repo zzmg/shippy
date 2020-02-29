@@ -36,9 +36,9 @@ func main()  {
 		fmt.Println(err.Error())
 	}
 	fmt.Println(resp)
-	resp, err = client.GetConsignments(context.Background(),&pb.GetRequest{})
-	if err != nil  {
-		fmt.Println(err.Error())
-	}
-	fmt.Println(resp)
+	//resp, err = client.GetConsignments(context.Background(),&pb.GetRequest{})
+	//if err != nil  {
+	//	fmt.Println(err.Error())
+	//}
+	//fmt.Println(resp)
 }

@@ -1,4 +1,4 @@
-package  main
+package main
 
 import (
 	"github.com/micro/go-micro"
@@ -6,17 +6,18 @@ import (
 	"shippy.com/consignment-service/rpcserver"
 )
 
-func main()  {
+func main() {
 	common.LoadConfig("./conf/consignment.yaml")
-	common.Initalise()
-	StartService(common.ConfigService{})
+	common.Initalias()
+	StartService()
 }
 
-func StartService(config common.ConfigService) {
+func StartService() {
 	server := micro.NewService(
-		micro.Name(config.SvcName),
+		micro.Name(common.GlobalConf.Micro.SvcName),
 		micro.Version("latest"),
 	)
 	server.Init()
 	rpcserver.Init(server)
 }
+
