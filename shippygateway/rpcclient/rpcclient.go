@@ -15,7 +15,7 @@ func StartClient() {
 		micro.Name(common.GlobalConf.Micro.SvcName),
 	)
 	server.Init()
-	ShippyServiceClient = pb.NewShippingServiceClient(common.GlobalConf.Micro.SvcName, client.DefaultClient)
+	ShippyServiceClient = pb.NewShippingServiceClient("go.micro.srv.consignment", client.DefaultClient)
 	go func() {
 		defer func() {
 			if e := recover(); e != nil {

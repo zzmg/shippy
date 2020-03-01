@@ -1,23 +1,23 @@
 {
-  "consignment_id": "bbb",
+  "consignment_id": "ccc",
   "description": "This is a test consignment",
   "weight": 55000,
   "containers": [
     {
       "customer_id": "cust001",
       "user_id": "user001",
-      "container_id": "bbb1"
+      "container_id": "eee1"
     },
     {
       "customer_id": "cust002",
       "user_id": "user001",
-      "container_id": "bbb2"
+      "container_id": "eee2"
     },
     {
       "customer_id": "cust005",
       "user_id": "user001",
-      "container_id": "bbb3"
+      "container_id": "eee3"
     }
   ],
-  "user_id" : "czh"
+  "user_id" : "ssss"
 }

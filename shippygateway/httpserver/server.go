@@ -1,6 +1,7 @@
 package httpserver
 
 import (
+	"fmt"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 	serviceapi "shippy.com/shippygateway/httpserver/api"
@@ -32,5 +33,5 @@ func MountShippyAPI(group *echo.Group) {
 }
 
 func StartServer() {
-	api.Start("18888")
+	fmt.Println(api.Start(":18888"))
 }

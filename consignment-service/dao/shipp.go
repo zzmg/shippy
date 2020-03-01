@@ -37,24 +37,31 @@ func GetConsignment() []*models.Consignment {
 	return allConsignment
 }
 
-func GetConsignmentId() []string {
-	var allId []string
-	models.DB().Select("DISTRINCT(consignment_id)").Find(&allId)
+type ResultId struct {
+	ConsignmentId string
+}
+
+func GetConsignmentId() []*ResultId {
+	var allId []*ResultId
+	models.DB().Table("consignments").Select("DISTINCT(consignment_id)").Find(&allId)
 	return allId
 }
 func GetConsignmentById(consignment_id string) *consignment.Consignment {
-	var a []*models.Consignment
+	var a []models.Consignment
 	var protocon consignment.Consignment
 	models.DB().Where("consignment_id = ?", consignment_id).Find(&a)
-
 	for _, v := range a {
 		var container_model models.Container
 		var container_proto consignment.Container
 		container_id := v.ContainerId
-		models.DB().Where("container_id = ?", container_id).Find(&container_model)
+		models.DB().Table("containers").Where("container_id = ?", container_id).Find(&container_model)
 		container_proto.ContainerId = container_model.ContainerId
 		container_proto.UserId = container_model.UserId
 		container_proto.CustomerId = container_model.CustomerId
+		protocon.ConsignmentId = v.ConsignmentId
+		protocon.Description = v.Description
+		protocon.UserId = v.UserId
+		protocon.Weight = v.Weight
 		protocon.Containers = append(protocon.Containers, &container_proto)
 	}
 	return &protocon

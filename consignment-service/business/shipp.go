@@ -1,6 +1,7 @@
 package business
 
 import (
+	"fmt"
 	"shippy.com/consignment-service/dao"
 	"shippy.com/protoctl/consignment"
 )
@@ -18,7 +19,9 @@ func GetConsignment(req *consignment.GetRequest, resp *consignment.Response) err
 	var all []*consignment.Consignment
 	a := dao.GetConsignmentId()
 	for _, v := range a {
-		b := dao.GetConsignmentById(v)
+		fmt.Println("------------")
+		fmt.Println(v)
+		b := dao.GetConsignmentById(v.ConsignmentId)
 		all = append(all, b)
 	}
 
